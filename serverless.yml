@@ -1,0 +1,13 @@
+service: stargazing
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    WEBHOOK_URL: "CHANGE-ME"
+
+functions:
+  stargazer:
+    handler: handler.stargazer
+    events:
+      - http: POST stargazer

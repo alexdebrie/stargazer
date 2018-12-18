@@ -1,13 +1,18 @@
 service: stargazing
 
 provider:
-  name: aws
-  runtime: nodejs6.10
+  name: google
+  runtime: nodejs
+  project: change_me
+  credentials: .gcloud/keyfile.json
   environment:
-    WEBHOOK_URL: "CHANGE-ME"
+    WEBHOOK_URL: "<CHANGE_ME>"
 
 functions:
   stargazer:
-    handler: handler.stargazer
+    handler: stargazer
     events:
       - http: POST stargazer
+
+plugins:
+  - serverless-google-cloudfunctions

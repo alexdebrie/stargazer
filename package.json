@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "sync-request": "^4.1.0"
+  },
+  "devDependencies": {
+    "serverless-google-cloudfunctions": "^2.3.2"
   }
 }

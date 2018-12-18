@@ -1,12 +1,13 @@
-'use strict';
+"use strict";
 
-const request = require('sync-request');
+const request = require("sync-request");
 
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
-module.exports.stargazer = (event, context, callback) => {
-  const body = JSON.parse(event.body)
-  const { repository, sender } = body;
+module.exports.stargazer = (req, res) => {
+  const {
+    body: { repository, sender }
+  } = req;
 
   const repo = repository.name;
   const stars = repository.stargazers_count;
@@ -17,28 +18,17 @@ module.exports.stargazer = (event, context, callback) => {
     sendToSlack(repo, stars, username, url);
   } catch (err) {
     console.log(err);
-    callback(err);
+    throw err;
   }
-
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: "Event processed"
-    }),
-  };
-  callback(null, response);
+  return res.send("Event processed");
 };
 
 const sendToSlack = (repo, stars, username, url) => {
-  const text = [
-    `New Github star for _${repo}_ repo!.`,
-    `The *${repo}* repo now has *${stars}* stars! :tada:.`,
-    `Your new fan is <${url}|${username}>`
-  ].join('\n');
-  const resp = request('POST', WEBHOOK_URL, {
+  const text = `<${url}|${username}> starred _${repo}_ (*${stars}* stars)`;
+  const resp = request("POST", WEBHOOK_URL, {
     json: { text }
   });
 
   // Use getBody to check if there was an error.
   resp.getBody();
-}
+};

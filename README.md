@@ -22,7 +22,9 @@ This project uses:
 
 2. Create an [incoming webhook integration](https://my.slack.com/services/new/incoming-webhook/) in Slack. Copy the webhook URL into `serverless.yml` as the `WEBHOOK_URL` environment variable.
 
-3. Deploy your Serverless service ⚡️:
+3. Still in `serverless.yml`, change the `project` value and copy your [keyfile](https://serverless.com/framework/docs/providers/google/guide/credentials/) under `./gcloud/keyfile.json`.
+
+4. Deploy your Serverless service ⚡️:
 
   ```bash
   $ sls deploy
@@ -30,6 +32,6 @@ This project uses:
 
   You'll see an endpoint for your function in the `Service Information` section once the deploy is finished.
 
-4. Create a webhook in your preferred Github repository (docs [here](https://developer.github.com/webhooks/creating/)). Use the endpoint from the previous step as your payload URL.
+5. Create a webhook in your preferred Github repository (docs [here](https://developer.github.com/webhooks/creating/)). Use the endpoint from the previous step as your payload URL.
 
-5. Watch the notifications come in! 😎
+6. Watch the notifications come in! 😎

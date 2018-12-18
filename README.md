@@ -2,7 +2,7 @@
 
 Get Slack notifications whenever someone stars your Github repo! 🌟
 
-<img width="412" alt="Slack example message" src="https://user-images.githubusercontent.com/6509926/32450649-5c1a4e82-c2da-11e7-98a4-2a9ec1cd2ab7.png">
+<img width="412" alt="Slack example message" src="https://user-images.githubusercontent.com/412895/50142225-264aae80-02dc-11e9-8a70-27df5f4bba37.jpeg">
 
 This project uses:
 

@@ -16,7 +16,7 @@ This project uses:
 
   ```bash
   $ npm install -g serverless
-  $ sls create --template-url https://github.com/alexdebrie/stargazer -p stargazer
+  $ sls create --template-url https://github.com/kytwb/stargazer -p stargazer
   $ cd stargazer
   ```
 
